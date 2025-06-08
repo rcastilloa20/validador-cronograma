@@ -128,15 +128,47 @@ if uploaded_file:
         total_errores = sum([r["Valores inconsistentes"] for r in resumen])
         if total_errores > 0:
             st.markdown(f"""
-                <div style="background-color:#FFF3CD; padding:20px; border-left:5px solid #FFA500; border-radius:10px;
-                            font-size:18px; text-align:center; font-weight:bold; color:#856404;">
+                <div style="
+                    position: fixed;
+                    top: 30%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #FFF3CD;
+                    padding: 30px;
+                    border-left: 6px solid #FFA500;
+                    border-radius: 12px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #856404;
+                    box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+                    z-index: 9999;
+                    width: 80%;
+                    max-width: 600px;
+                    text-align: center;
+                ">
                     ⚠️ Se encontraron {total_errores} valores inconsistentes en el archivo cargado.
                 </div>
             """, unsafe_allow_html=True)
         else:
             st.markdown(f"""
-                <div style="background-color:#D4EDDA; padding:20px; border-left:5px solid #28A745; border-radius:10px;
-                            font-size:18px; text-align:center; font-weight:bold; color:#155724;">
+                <div style="
+                    position: fixed;
+                    top: 30%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #D4EDDA;
+                    padding: 30px;
+                    border-left: 6px solid #28A745;
+                    border-radius: 12px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #155724;
+                    box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+                    z-index: 9999;
+                    width: 80%;
+                    max-width: 600px;
+                    text-align: center;
+                ">
                     ✅ No se encontraron inconsistencias en los datos.
                 </div>
             """, unsafe_allow_html=True)
