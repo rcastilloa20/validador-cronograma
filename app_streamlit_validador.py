@@ -127,9 +127,19 @@ if uploaded_file:
 
         total_errores = sum([r["Valores inconsistentes"] for r in resumen])
         if total_errores > 0:
-            st.toast(f"⚠️ Se encontraron {total_errores} valores inconsistentes en el archivo cargado.", icon="⚠️")
+            st.markdown(f"""
+                <div style="background-color:#FFF3CD; padding:20px; border-left:5px solid #FFA500; border-radius:10px;
+                            font-size:18px; text-align:center; font-weight:bold; color:#856404;">
+                    ⚠️ Se encontraron {total_errores} valores inconsistentes en el archivo cargado.
+                </div>
+            """, unsafe_allow_html=True)
         else:
-            st.toast("✅ No se encontraron inconsistencias en los datos.", icon="✅")
+            st.markdown(f"""
+                <div style="background-color:#D4EDDA; padding:20px; border-left:5px solid #28A745; border-radius:10px;
+                            font-size:18px; text-align:center; font-weight:bold; color:#155724;">
+                    ✅ No se encontraron inconsistencias en los datos.
+                </div>
+            """, unsafe_allow_html=True)
 
         st.subheader("🔍 Resumen de validación")
 
