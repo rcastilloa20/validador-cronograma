@@ -125,14 +125,13 @@ if uploaded_file:
         st.success("✅ Archivo cargado correctamente.")
         resumen, inconsistencias = procesar_dataframe(df)
 
-        
         total_errores = sum([r["Valores inconsistentes"] for r in resumen])
         if total_errores > 0:
-    st.warning(f"⚠️ Se encontraron {total_errores} valores inconsistentes en el archivo cargado.")
-else:
-    st.success("✅ No se encontraron inconsistencias en los datos.")
-        st.subheader("🔍 Resumen de validación")
+            st.warning(f"⚠️ Se encontraron {total_errores} valores inconsistentes en el archivo cargado.")
+        else:
+            st.success("✅ No se encontraron inconsistencias en los datos.")
 
+        st.subheader("🔍 Resumen de validación")
 
         resumen_df = pd.DataFrame(resumen)
 
@@ -141,7 +140,6 @@ else:
             return [color] * len(row)
 
         styled_df = resumen_df.style.apply(resaltar_errores, axis=1)
-
         st.dataframe(styled_df, use_container_width=True)
 
         excel_report = generar_reporte_excel(resumen, inconsistencias)
@@ -152,19 +150,6 @@ else:
             file_name="reporte_validacion.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
-
-        if inconsistencias:
-            inconsistencias_df = pd.concat(inconsistencias.values(), axis=1)
-            inconsistencias_xlsx = BytesIO()
-            inconsistencias_df.to_excel(inconsistencias_xlsx, index=False)
-            inconsistencias_xlsx.seek(0)
-
-            st.download_button(
-                label="❗ Descargar solo datos inconsistentes",
-                data=inconsistencias_xlsx,
-                file_name="datos_inconsistentes.xlsx",
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            )
 
         if inconsistencias:
             inconsistencias_df = pd.concat(inconsistencias.values(), axis=1)
