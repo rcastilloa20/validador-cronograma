@@ -127,9 +127,9 @@ if uploaded_file:
 
         total_errores = sum([r["Valores inconsistentes"] for r in resumen])
         if total_errores > 0:
-            st.warning(f"⚠️ Se encontraron {total_errores} valores inconsistentes en el archivo cargado.")
+            st.toast(f"⚠️ Se encontraron {total_errores} valores inconsistentes en el archivo cargado.", icon="⚠️")
         else:
-            st.success("✅ No se encontraron inconsistencias en los datos.")
+            st.toast("✅ No se encontraron inconsistencias en los datos.", icon="✅")
 
         st.subheader("🔍 Resumen de validación")
 
