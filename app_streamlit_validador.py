@@ -11,7 +11,7 @@ from openpyxl.utils import get_column_letter
 
 st.set_page_config(page_title="Data Entry Cronograma de inventario", layout="centered")
 
-st.title("📅 Data Entry Cronograma calendario")
+st.title("📅 Data Entry Cronograma de inventario")
 st.markdown("Valida tipos de datos en tu cronograma de inventario y genera reportes automáticos.")
 
 uploaded_file = st.file_uploader("Selecciona tu archivo CSV", type=["csv"])
