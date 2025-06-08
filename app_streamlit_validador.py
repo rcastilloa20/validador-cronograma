@@ -126,7 +126,7 @@ if uploaded_file:
         resumen, inconsistencias = procesar_dataframe(df)
 
         st.subheader("🔍 Resumen de validación")
-        
+
         resumen_df = pd.DataFrame(resumen)
 
         def resaltar_errores(row):
@@ -136,16 +136,6 @@ if uploaded_file:
         styled_df = resumen_df.style.apply(resaltar_errores, axis=1)
 
         st.dataframe(styled_df, use_container_width=True)
-
-
-def resaltar_errores(row):
-    color = 'background-color: #FFC7CE' if row['Valores inconsistentes'] > 0 else ''
-    return [color] * len(row)
-
-styled_df = resumen_df.style.apply(resaltar_errores, axis=1)
-
-st.dataframe(styled_df, use_container_width=True)
-
 
         excel_report = generar_reporte_excel(resumen, inconsistencias)
 
