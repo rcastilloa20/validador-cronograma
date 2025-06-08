@@ -9,7 +9,7 @@ from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Font
 from openpyxl.utils import get_column_letter
 
-st.set_page_config(page_title="Data Entry Cronograma calendario", layout="centered")
+st.set_page_config(page_title="Data Entry Cronograma de inventario", layout="centered")
 
 st.title("📅 Data Entry Cronograma calendario")
 st.markdown("Valida tipos de datos en tu cronograma de inventario y genera reportes automáticos.")
